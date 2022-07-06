@@ -142,14 +142,14 @@ func BenchmarkMin(b *testing.B) {
 }
 
 func BenchmarkPow(b *testing.B) {
-	//var r float64
+	var r float64
 	for n := 0; n < b.N; n++ {
-		math.Pow(e, pi)
+		r = math.Pow(e, pi)
 	}
 
 	// always store the result to a package level variable
 	// so the compiler cannot eliminate the Benchmark itself.
-	//result = r
+	result = r
 }
 
 func BenchmarkRound(b *testing.B) {
