@@ -42,6 +42,28 @@ func BenchmarkAsin(b *testing.B) {
 	result = r
 }
 
+func BenchmarkAtan(b *testing.B) {
+	var r float64
+	for n := 0; n < b.N; n++ {
+		r = math.Atan(e)
+	}
+
+	// always store the result to a package level variable
+	// so the compiler cannot eliminate the Benchmark itself.
+	result = r
+}
+
+func BenchmarkAtan2(b *testing.B) {
+	var r float64
+	for n := 0; n < b.N; n++ {
+		r = math.Atan2(e, pi)
+	}
+
+	// always store the result to a package level variable
+	// so the compiler cannot eliminate the Benchmark itself.
+	result = r
+}
+
 func BenchmarkCbrt(b *testing.B) {
 	var r float64
 	for n := 0; n < b.N; n++ {
